@@ -13,10 +13,15 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   body {
     font-family: 'Lato', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-size: 1.6rem;
+    overflow: ${({ isOpen }) => (isOpen ? 'hidden' : 'auto')};
   }
 `;

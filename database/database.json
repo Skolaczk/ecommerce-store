@@ -1050,5 +1050,47 @@
       "thickness": "8.5 mm",
       "weight": "193 g"
     }
+  ],
+  "producers": [
+    {
+      "id": 1,
+      "name": "Realme"
+    },
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "Apple"
+    },
+    {
+      "id": 4,
+      "name": "Xiaomi"
+    },
+    {
+      "id": 5,
+      "name": "Oneplus"
+    },
+    {
+      "id": 6,
+      "name": "Motorola"
+    },
+    {
+      "id": 7,
+      "name": "Oppo"
+    },
+    {
+      "id": 8,
+      "name": "Nokia"
+    },
+    {
+      "id": 9,
+      "name": "Huawei"
+    },
+    {
+      "id": 10,
+      "name": "Alcatel"
+    }
   ]
 }
