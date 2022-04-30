@@ -32,7 +32,9 @@ const Header = ({ isOpen, setIsOpen }) => {
     <StyledHeader>
       <Wrapper>
         <LogoWrapper>
-          <img src={Logo} alt="" />
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
           <StyledInput
             type="text"
             name="search-engine"

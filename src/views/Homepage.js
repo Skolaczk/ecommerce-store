@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.min.css';
 import { Autoplay } from 'swiper';
@@ -11,7 +12,6 @@ import {
   StyledSlidePhones,
   StyledParagraph,
   StyledSlidePromotion,
-  Wrapper,
   Container,
   StyledContainerPhones,
   PromotionWrapper,
@@ -32,7 +32,7 @@ import Promotion5 from '.././assets/images/homepage/promotion5.webp';
 const Homepage = () => {
   const [specialPhone, setSpecialPhone] = useState({});
   const [phones, setPhones] = useState([]);
-  const { name, price, images } = specialPhone;
+  const { id, name, price, images } = specialPhone;
   const width = useWindowWidth();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <>
       <StyledSwiper
         loop={true}
         grabCursor={true}
@@ -73,25 +73,29 @@ const Homepage = () => {
       </StyledSwiper>
       <Container>
         {images ? (
-          <StyledSpecialPhone>
-            <h2>Gorący strzał</h2>
-            <img src={images[0]} alt="" />
-            <h3>{name}</h3>
-            <p>{price + '.00'} zł</p>
-            <p>{price - 200 + '.00'} zł</p>
-            <div>
-              Oszczędź
-              <span>{price - (price - 200)} zł</span>
-            </div>
-          </StyledSpecialPhone>
+          <Link to={`/phone/${id}`}>
+            <StyledSpecialPhone>
+              <h2>Gorący strzał</h2>
+              <img src={images[0]} alt="" />
+              <h3>{name}</h3>
+              <p>{price + '.00'} zł</p>
+              <p>{price - 200 + '.00'} zł</p>
+              <div>
+                Oszczędź
+                <span>{price - (price - 200)} zł</span>
+              </div>
+            </StyledSpecialPhone>
+          </Link>
         ) : null}
         <StyledContainerPhones>
           {phones.slice(32, 40).map(({ id, name, images, price }) => (
-            <StyledSlidePhones key={id}>
-              <img src={images[0]} alt="" />
-              <h3>{name.length > 30 ? `${name.slice(0, 30)}...` : name}</h3>
-              <StyledParagraph>{price + '.00'} zł</StyledParagraph>
-            </StyledSlidePhones>
+            <Link to={`/phone/${id}`} key={id}>
+              <StyledSlidePhones>
+                <img src={images[0]} alt="" />
+                <h3>{name.length > 30 ? `${name.slice(0, 30)}...` : name}</h3>
+                <StyledParagraph>{price + '.00'} zł</StyledParagraph>
+              </StyledSlidePhones>
+            </Link>
           ))}
         </StyledContainerPhones>
       </Container>
@@ -140,7 +144,7 @@ const Homepage = () => {
         phonesIndex={[0, 8]}
         title="Ostatnio oglądane"
       />
-    </Wrapper>
+    </>
   );
 };
 

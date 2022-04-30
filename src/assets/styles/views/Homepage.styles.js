@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 import { Swiper } from 'swiper/react/swiper-react.js';
 
-export const Wrapper = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-`;
-
 export const Container = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     display: flex;
+    align-items: center;
   }
 `;
 
@@ -43,6 +39,7 @@ export const StyledSpecialPhone = styled.div`
 
   h2 {
     font-size: ${({ theme }) => theme.font.size.xl};
+    color: ${({ theme }) => theme.colors.darkGray};
     text-align: left;
   }
 
@@ -95,21 +92,6 @@ export const StyledSpecialPhone = styled.div`
   }
 `;
 
-export const StyledContainerPhones = styled.div`
-  display: none;
-
-  img {
-    max-height: 200px;
-  }
-
-  ${({ theme }) => theme.mq.desktop} {
-    margin: 25px;
-    display: grid;
-    gap: 20px 50px;
-    grid-template-columns: repeat(4, 1fr);
-  }
-`;
-
 export const StyledSlidePhones = styled.div`
   max-width: 1400px;
 
@@ -122,6 +104,30 @@ export const StyledSlidePhones = styled.div`
     font-size: ${({ theme }) => theme.font.size.s};
     font-weight: ${({ theme }) => theme.font.weight.regular};
     margin: 5px 0;
+  }
+`;
+
+export const StyledContainerPhones = styled.div`
+  display: none;
+
+  img {
+    max-height: 200px;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    margin: 25px 0 25px 50px;
+    display: grid;
+    gap: 10px 30px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  ${StyledSlidePhones} {
+    padding: 15px;
+    border-radius: 10px;
+
+    &:hover {
+      box-shadow: ${({ theme }) => theme.shadow};
+    }
   }
 `;
 
