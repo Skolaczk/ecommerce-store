@@ -6,6 +6,7 @@ import { MainTemplate } from 'templates/MainTemplate';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import Phone from './Phone';
+import PhonesList from './PhonesList';
 
 const Root = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,7 @@ const Root = () => {
         <MainTemplate isOpen={isOpen} setIsOpen={setIsOpen}>
           <Routes>
             <Route path="/phone/:id" element={<Phone />} />
+            <Route path="/phones/:producer" element={<PhonesList />} />
             <Route path="/" element={<Homepage />} />
           </Routes>
         </MainTemplate>

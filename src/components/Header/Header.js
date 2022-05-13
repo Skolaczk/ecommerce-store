@@ -85,7 +85,7 @@ const Header = ({ isOpen, setIsOpen }) => {
           <ul>
             {producers.map(({ id, name }) => (
               <StyledListItem key={id}>
-                <Link to="/">
+                <Link to={`/phones/${name}`} onClick={() => setIsOpen(false)}>
                   <p>{name}</p>
                   <span className="fa-solid fa-chevron-right"></span>
                 </Link>
