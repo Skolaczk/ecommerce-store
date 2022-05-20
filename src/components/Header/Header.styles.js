@@ -29,6 +29,7 @@ export const Wrapper = styled.div`
 
 export const IconsWrapper = styled.div`
   display: flex;
+  position: relative;
 `;
 
 export const StyledIcon = styled(Link)`
@@ -202,4 +203,16 @@ export const StyledListItem = styled.li`
       display: none;
     }
   }
+`;
+
+export const StyledCounter = styled.span`
+  position: absolute;
+  top: -6px;
+  right: -1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: ${({ theme }) => theme.font.size.xxs};
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.white};
 `;

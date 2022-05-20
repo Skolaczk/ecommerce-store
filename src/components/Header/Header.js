@@ -13,13 +13,16 @@ import {
   StyledListItem,
   StyledTitle,
   LogoWrapper,
+  StyledCounter,
 } from './Header.styles';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
 import axios from 'axios';
+import { useShoppingCart } from 'hooks/useShoppingCart';
 
 const Header = ({ isOpen, setIsOpen }) => {
   const [producers, setProducers] = useState([]);
+  const { shoppingCartItems } = useShoppingCart();
 
   useEffect(() => {
     axios
@@ -51,9 +54,12 @@ const Header = ({ isOpen, setIsOpen }) => {
             <span className="fa-solid fa-user"></span>
             <p>Twoje konto</p>
           </StyledIcon>
-          <StyledIcon to="/phone">
+          <StyledIcon to="/shopping-cart">
             <span className="fa-solid fa-cart-shopping"></span>
             <p>Koszyk</p>
+            {shoppingCartItems.length ? (
+              <StyledCounter>{shoppingCartItems.length}</StyledCounter>
+            ) : null}
           </StyledIcon>
         </IconsWrapper>
       </Wrapper>

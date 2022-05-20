@@ -18,11 +18,13 @@ import {
   StyledDescription,
   Wrapper,
 } from '../assets/styles/views/Phone.styles';
+import { useShoppingCart } from 'hooks/useShoppingCart';
 
 const Phone = () => {
   const [phone, setPhone] = useState({});
   const { id } = useParams();
   const { name, price, images, description, specification } = phone;
+  const { handleAddItem } = useShoppingCart();
 
   useEffect(() => {
     axios
@@ -52,7 +54,7 @@ const Phone = () => {
             <WrapperInformation>
               <StyledName>{name}</StyledName>
               <StyledPrice>{price}.00 zł</StyledPrice>
-              <button>
+              <button onClick={() => handleAddItem(phone)}>
                 <span className="fa-solid fa-cart-plus"></span> Dodaj do koszyka
               </button>
               <div>

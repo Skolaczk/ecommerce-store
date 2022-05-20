@@ -11,10 +11,12 @@ import {
   StyledPrice,
   StyledButton,
 } from 'assets/styles/views/PhonesList.styles';
+import { useShoppingCart } from 'hooks/useShoppingCart';
 
 const PhonesList = () => {
   const [phones, setPhones] = useState([]);
   const { producer } = useParams();
+  const { handleAddItem } = useShoppingCart();
 
   useEffect(() => {
     axios
@@ -52,7 +54,18 @@ const PhonesList = () => {
                   </div>
                 </Container>
               </Link>
-              <StyledButton>
+              <StyledButton
+                onClick={() =>
+                  handleAddItem({
+                    id,
+                    name,
+                    producer,
+                    price,
+                    images,
+                    specification,
+                  })
+                }
+              >
                 <span className="fa-solid fa-cart-plus"></span>
               </StyledButton>
             </StyledPhone>

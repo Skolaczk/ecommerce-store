@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import Phone from './Phone';
 import PhonesList from './PhonesList';
+import ShoppingCart from './ShoppingCart';
+import { ShoppingCartProvider } from 'hooks/useShoppingCart';
 
 const Root = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +16,17 @@ const Root = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <GlobalStyle isOpen={isOpen} />
-        <MainTemplate isOpen={isOpen} setIsOpen={setIsOpen}>
-          <Routes>
-            <Route path="/phone/:id" element={<Phone />} />
-            <Route path="/phones/:producer" element={<PhonesList />} />
-            <Route path="/" element={<Homepage />} />
-          </Routes>
-        </MainTemplate>
+        <ShoppingCartProvider>
+          <GlobalStyle isOpen={isOpen} />
+          <MainTemplate isOpen={isOpen} setIsOpen={setIsOpen}>
+            <Routes>
+              <Route path="/phone/:id" element={<Phone />} />
+              <Route path="/phones/:producer" element={<PhonesList />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/" element={<Homepage />} />
+            </Routes>
+          </MainTemplate>
+        </ShoppingCartProvider>
       </ThemeProvider>
     </Router>
   );
