@@ -6,7 +6,6 @@ import {
   StyledIcon,
   StyledNavigation,
   StyledButton,
-  StyledInput,
   StyledMenu,
   StyledMenuHeader,
   StyledMenuContent,
@@ -19,8 +18,9 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
 import axios from 'axios';
 import { useShoppingCart } from 'hooks/useShoppingCart';
+import SearchBar from 'components/SearchBar/SearchBar';
 
-const Header = ({ isOpen, setIsOpen }) => {
+const Header = ({ isMenuOpen, setIsMenuOpen }) => {
   const [producers, setProducers] = useState([]);
   const { shoppingCartItems } = useShoppingCart();
 
@@ -38,12 +38,7 @@ const Header = ({ isOpen, setIsOpen }) => {
           <Link to="/">
             <img src={Logo} alt="" />
           </Link>
-          <StyledInput
-            type="text"
-            name="search-engine"
-            id="search-engine-deskop"
-            placeholder="Czego szukasz?"
-          />
+          <SearchBar />
         </LogoWrapper>
         <IconsWrapper>
           <StyledIcon to="/phone">
@@ -64,23 +59,18 @@ const Header = ({ isOpen, setIsOpen }) => {
         </IconsWrapper>
       </Wrapper>
       <StyledNavigation>
-        <StyledButton as="button" onClick={() => setIsOpen(true)}>
+        <StyledButton as="button" onClick={() => setIsMenuOpen(true)}>
           <span className="fa-solid fa-bars"></span>
           <p>Menu</p>
         </StyledButton>
-        <StyledInput
-          type="text"
-          name="search-engine"
-          id="search-engine-mobile"
-          placeholder="Czego szukasz?"
-        />
+        <SearchBar />
       </StyledNavigation>
-      <StyledMenu isOpen={isOpen}>
+      <StyledMenu isMenuOpen={isMenuOpen}>
         <StyledMenuHeader>
           <StyledButton
             as="button"
             aria-label="button"
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsMenuOpen(false)}
           >
             <span className="fa-solid fa-xmark"></span>
           </StyledButton>
@@ -91,7 +81,10 @@ const Header = ({ isOpen, setIsOpen }) => {
           <ul>
             {producers.map(({ id, name }) => (
               <StyledListItem key={id}>
-                <Link to={`/phones/${name}`} onClick={() => setIsOpen(false)}>
+                <Link
+                  to={`/phones/${name}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   <p>{name}</p>
                   <span className="fa-solid fa-chevron-right"></span>
                 </Link>

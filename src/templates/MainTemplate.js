@@ -4,9 +4,9 @@ import Header from '../components/Header/Header';
 import { Wrapper } from './MainTemplate.styles';
 import Footer from 'components/Footer/Footer';
 
-export const MainTemplate = ({ children, isOpen, setIsOpen }) => (
+export const MainTemplate = ({ children, isMenuOpen, setIsMenuOpen }) => (
   <>
-    <Header isOpen={isOpen} setIsOpen={setIsOpen} />
+    <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     <Wrapper>{children}</Wrapper>
     <Footer />
   </>

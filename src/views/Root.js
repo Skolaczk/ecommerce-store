@@ -11,14 +11,14 @@ import ShoppingCart from './ShoppingCart';
 import { ShoppingCartProvider } from 'hooks/useShoppingCart';
 
 const Root = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <ShoppingCartProvider>
-          <GlobalStyle isOpen={isOpen} />
-          <MainTemplate isOpen={isOpen} setIsOpen={setIsOpen}>
+          <GlobalStyle isMenuOpen={isMenuOpen} />
+          <MainTemplate isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}>
             <Routes>
               <Route path="/phone/:id" element={<Phone />} />
               <Route path="/phones/:producer" element={<PhonesList />} />

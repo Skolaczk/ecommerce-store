@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 15px;
   }
 `;
 
@@ -64,34 +65,25 @@ export const StyledButton = styled(StyledIcon)`
   }
 `;
 
-export const StyledInput = styled.input`
-  width: 100%;
-  border-radius: 25px;
-  border: 1px solid ${({ theme }) => theme.colors.silver};
-  padding: 0 10px;
-
-  &:focus {
-    box-shadow: ${({ theme }) => theme.shadow};
-    outline: none;
-  }
-`;
-
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
+
   img {
     width: 100px;
   }
 
-  ${StyledInput} {
+  input {
     display: none;
   }
 
   ${({ theme }) => theme.mq.desktop} {
-    ${StyledInput} {
+    width: 83%;
+
+    input {
       display: block;
-      width: 500px;
       height: 35px;
+      width: 95%;
       margin: 0 25px;
     }
   }
@@ -99,11 +91,10 @@ export const LogoWrapper = styled.div`
 
 export const StyledNavigation = styled.nav`
   display: flex;
-  justify-content: center;
   margin-top: 10px;
 
   ${({ theme }) => theme.mq.desktop} {
-    ${StyledInput} {
+    input {
       display: none;
     }
   }
@@ -117,7 +108,7 @@ export const StyledMenu = styled.div`
   top: 0;
   left: -100%;
   z-index: 2;
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(100%)' : '')};
+  transform: ${({ isMenuOpen }) => (isMenuOpen ? 'translateX(100%)' : '')};
   transition: transform 0.25s ease-in-out;
 
   ${({ theme }) => theme.mq.desktop} {
@@ -164,7 +155,7 @@ export const StyledMenuContent = styled.div`
     list-style: none;
     ${({ theme }) => theme.mq.desktop} {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       max-width: 1400px;
       margin: 0 auto;
     }

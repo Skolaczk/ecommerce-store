@@ -22,6 +22,6 @@ export const GlobalStyle = createGlobalStyle`
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-size: 1.6rem;
-    overflow: ${({ isOpen }) => (isOpen ? 'hidden' : 'auto')};
+    overflow: ${({ isMenuOpen }) => (isMenuOpen ? 'hidden' : 'auto')};
   }
 `;
