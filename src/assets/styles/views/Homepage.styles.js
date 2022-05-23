@@ -35,6 +35,7 @@ export const StyledSpecialPhone = styled.div`
 
   img {
     width: 100%;
+    margin-top: 30px;
   }
 
   h2 {
@@ -117,7 +118,7 @@ export const StyledContainerPhones = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     margin: 25px 0 25px 50px;
     display: grid;
-    gap: 10px 30px;
+    gap: 5px 30px;
     grid-template-columns: repeat(4, 1fr);
   }
 
