@@ -131,16 +131,16 @@ export const StyledMenuHeader = styled.div`
   }
 
   ${StyledButton} {
-    margin-right: 20px;
-    position: relative;
-    top: 2px;
+    margin-right: 15px;
     span {
-      font-size: ${({ theme }) => theme.font.size.m};
+      font-size: ${({ theme }) => theme.font.size.l};
+      color: ${({ theme }) => theme.colors.gray};
     }
   }
 
   h2 {
     font-size: ${({ theme }) => theme.font.size.m};
+    color: ${({ theme }) => theme.colors.gray};
   }
 `;
 
