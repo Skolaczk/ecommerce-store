@@ -9,6 +9,13 @@ export const theme = {
     silver: '#CCCCCC',
     pink: '#FA0064',
     lightSilver: '#F5F5F5',
+    green: '#C7E0BC',
+    lightGreen: '#EEF7ED',
+    darkGreen: '#005200',
+    red: '#E0BCC7',
+    lightRed: '#f7EDEE',
+    darkRed: '#520000',
+    juicyRed: '#b4031c',
   },
   font: {
     weight: {

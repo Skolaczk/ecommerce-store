@@ -45,7 +45,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
             <span className="fa-solid fa-phone"></span>
             <p>Pomoc i kontakt</p>
           </StyledIcon>
-          <StyledIcon to="/phone">
+          <StyledIcon to="/user-account">
             <span className="fa-solid fa-user"></span>
             <p>Twoje konto</p>
           </StyledIcon>
